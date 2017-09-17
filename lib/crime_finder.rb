@@ -52,6 +52,7 @@ class CrimeFinder
 
 	def make_the_request
 		url = URI(@url)
+		require 'net/http'
 		res = Net::HTTP.get_response(url)
 		return res
 	end
