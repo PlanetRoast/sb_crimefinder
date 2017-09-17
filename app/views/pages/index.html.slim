@@ -1,0 +1,27 @@
+.container
+	.row.justify-content-md-center
+		.col-sm-6
+			h1 Crime Finder
+			p Enter a UK location to see a list of crimes that happened near that area.
+
+			= form_tag root_path, :class => 'form-inline'
+				= render 'search_form'
+				= submit_tag 'Search', :class => "btn btn-primary"
+
+.container
+	.row.justify-content-md-center
+		.col-sm-6
+
+			- # Errors
+			- if @errors.present?
+				- @errors.each do |e|
+					p.alert = e
+
+			- # Crimes
+			- if @crimes.present?
+				- @crimes.each do |c|
+					= render 'crime', crime: c
+
+			- # No crimes message
+			- if @crimes.blank?
+				p No crimes found.

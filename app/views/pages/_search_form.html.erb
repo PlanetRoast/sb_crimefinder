@@ -1,0 +1,13 @@
+<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBYz1mOLyiGhToaR1QQ7HtUg4WCyeMjZeQ&libraries=places"></script>
+
+<%= text_field_tag 'location', params[:location], :class => 'form-control' %>
+<%= hidden_field_tag 'latitude', params[:latitude], :data_geo => 'lat' %>
+<%= hidden_field_tag 'longitude', params[:longitude], :data_geo => 'lng' %>
+<%= hidden_field_tag 'country', params[:country], :data_geo => 'country' %>
+
+<script>
+	$("#location").geocomplete({
+		details: "form",
+		detailsAttribute: "data_geo"
+	});
+</script>

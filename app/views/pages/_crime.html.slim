@@ -1,0 +1,13 @@
+.card
+	h5.card-header
+		= crime.street_name
+	table.table
+		tr
+			th Category
+			td = crime.category
+		tr
+			th Outcome
+			td = crime.outcome
+		tr
+			th Date
+			td = crime.pretty_date
